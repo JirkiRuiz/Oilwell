@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="header-bar">
+        <div class="header">
+            <h1>Catalogo</h1>
+            <div class="add-new">
+                <button> AGREGAR</button>
+            </div>
+        </div>
+        <div class="filter-bar">
+            <div class="filter">
+                <div class="sort">
+                    <button #sortButton class="sort-button" [ngClass]="{'active': displayList }" (click)="toggleSort()">Ordernar por: {{sort}}</button>
+                    <div #sortList class="sort-list" *ngIf="displayList">
+                        <div class="sort-element" (click)="onFilter('Nombre')" [ngClass]="{'active': sort === 'Nombre' }"> Nombre</div>
+                        <div class="sort-element" (click)="onFilter('Categoria')" [ngClass]="{'active': sort === 'Categoria' }"> Categoria</div>
+                        <div class="sort-element" (click)="onFilter('Status')" [ngClass]="{'active': sort === 'Status' }"> Status</div>
+                    </div>
+                </div>
+                <div class="search">
+                    <input class="input" type="text" placeholder="Buscar">
+                </div>
+            </div>
+            <div class="pagination">
+                <!-- <select name="" id="">
+                    <option value=""></option>
+                </select> -->
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="material-list"> 
+            <div class="list-header material">
+                <div class="list-element" style="width: 15%;">Nombre</div>
+                <div class="list-element id">ID</div>
+                <div class="list-element description">Descripcion</div>
+                <div class="list-element amount">Cantidad</div>
+                <div class="list-element availability">Disponibilidad</div>
+            </div>
+            <div class="material">
+                <div class="list-element name">Bebinca</div>
+                <div class="list-element id">1</div>
+                <div class="list-element description">Acero al carbon C10</div>
+                <div class="list-element amount">25</div>
+                <div class="list-element availability">
+                    <p class="badge">DISPONIBLE</p>
+                </div>
+            </div>
+            <div class="material">
+                <div class="list-element name">Bebinca</div>
+                <div class="list-element id">1</div>
+                <div class="list-element description">Acero al carbon C10</div>
+                <div class="list-element amount">25</div>
+                <div class="list-element availability">
+                    <p class="badge">DISPONIBLE</p>
+                </div>
+            </div>
+            <div class="material">
+                <div class="list-element name">Bebinca</div>
+                <div class="list-element id">1</div>
+                <div class="list-element description">Acero al carbon C10</div>
+                <div class="list-element amount">25</div>
+                <div class="list-element availability">
+                    <p class="badge">DISPONIBLE</p>
+                </div>
+            </div>
+            <div class="material">
+                <div class="list-element name">Bebinca</div>
+                <div class="list-element id">1</div>
+                <div class="list-element description">Acero al carbon C10</div>
+                <div class="list-element amount">25</div>
+                <div class="list-element availability">
+                    <p class="badge">DISPONIBLE</p>
+                </div>
+            </div>
+            <div class="material">
+                <div class="list-element name">Bebinca</div>
+                <div class="list-element id">1</div>
+                <div class="list-element description">Acero al carbon C10</div>
+                <div class="list-element amount">25</div>
+                <div class="list-element availability">
+                    <p class="badge">DISPONIBLE</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
