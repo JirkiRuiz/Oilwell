@@ -2,11 +2,11 @@ import { Component , ViewChild , ElementRef,  Renderer2} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-materials-catalog',
-  templateUrl: './materials-catalog.component.html',
-  styleUrls: ['./materials-catalog.component.css']
+  selector: 'app-materials-list',
+  templateUrl: './materials-list.component.html',
+  styleUrls: ['./materials-list.component.css']
 })
-export class MaterialsCatalogComponent {
+export class MaterialsListComponent {
   @ViewChild('sortList') sortList: ElementRef = {} as ElementRef;
   @ViewChild('sortButton') sortButton: ElementRef = {} as ElementRef;
 

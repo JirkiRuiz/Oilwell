@@ -1,0 +1,82 @@
+.alert-container{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.header{
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    margin: 8px 0px;
+    border-bottom: 1px solid #d7d7d7;
+    padding-bottom: 15px;
+}
+
+.alert-item{ 
+    height: 220px;
+    width: 50%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 15px rgba(0,0,0,.04), 0 1px 6px rgba(0,0,0,.04);
+    color: #606060;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert-icon{
+    position: absolute;
+    bottom: -41px;
+    right: -33px;
+    .icon{
+        width: 140px;
+    }
+}
+
+.count{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.count-text label{
+    font-size: 14px;
+}
+.count-text p{
+    font-size: 32px;
+    color: rgb(96, 96, 96);
+}
+
+.alert-header{
+    margin-bottom: 25px;
+}
+.alert-header h2{
+    font-size: 18px;
+    margin: 0;
+}
+
+.alert-header p{
+    font-size: 14px;
+    margin: 0;
+}
+
+.note{
+    font-size: 12px;
+}
+
+.success{
+    color: rgb(22, 163, 74);
+}
+
+.alert-icon.success{
+    color: rgb(22, 163, 74 , 0.4);
+}
+
+.danger{
+    color: rgb(220, 38, 38)
+}
+
+.alert-icon.danger{
+    color: rgb(220, 38, 38, 0.4)
+}

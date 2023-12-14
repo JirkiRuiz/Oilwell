@@ -5,6 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialsModule } from '../materials/materials.module';
 import { MainComponent } from './main/main.component';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 const mainRoutes: Routes = [
   {
@@ -20,7 +21,7 @@ const mainRoutes: Routes = [
     SidebarComponent,
     NavbarComponent
   ],
-  imports: [ MaterialsModule , RouterModule.forChild(mainRoutes)],
+  imports: [ MaterialsModule , DashboardModule, RouterModule.forChild(mainRoutes)],
   exports: [RouterModule]
 })
 export class MainModule { }
