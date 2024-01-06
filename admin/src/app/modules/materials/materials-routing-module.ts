@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialsCatalogComponent } from './catalog/materials-catalog/materials-catalog.component';
+import { AddMaterialCatalogComponent } from './catalog/add-material-catalog/add-material-catalog.component';
+import { MaterialsListComponent } from './materials/materials-list/materials-list.component';
 
 const materialesRoutes: Routes = [
     {
         path: '',
-        component: MaterialsCatalogComponent
+        component: MaterialsListComponent
+    },
+    {
+      path: 'agregar-material',
+      component: AddMaterialCatalogComponent
     }
 ];
 
