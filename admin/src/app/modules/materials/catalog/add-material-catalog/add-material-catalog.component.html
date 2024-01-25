@@ -1,23 +1,41 @@
 <div class="container">
+
     <div class="header">
         <h2>Agregar Material</h2>
         <p>Agrega un material para que este dispobible en el catalogo</p>
     </div>
 
-    <div class="main-container">
+    <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
+        
         <div class="form">
             <div class="item">
-                <label> Nombre </label>
-                <input type="text" placeholder="nombre">
+                <label for="">Nombre </label>
+                <input type="text" class="form-control" placeholder="Nombre del material" required name="titulo" [(ngModel)]="material.titulo">
             </div>
+
             <div class="item">
-                <label> Descripcion </label>
-                <textarea name="description" ></textarea>
+                <label> Categoria </label>
+                <select class="form-control" placeholder="Selecciona una categoria" required name="categoria" [(ngModel)]="material.categoria">
+                <option selected disabled value="">Categorias</option>
+                <option *ngFor="let categoria of categorias" [value]="categoria.nombre">{{categoria.nombre}}</option>
+            </select>
             </div>
+
             <div class="item">
-                <label> Modelo </label>
-                <input type="text" placeholder="modelo">
+                <label> Stock </label>
+                <input type="text" class="form-control" placeholder="Stock disponible" required name="stock" [(ngModel)]="material.stock">
+            </div>
+
+            <div class="item">
+                <label> Estado </label>
+                <input type="text" class="form-control" placeholder="Disponibilidad" required name="estado" [(ngModel)]="material.estado">
             </div>
         </div>
-    </div>
+
+        <div class="submit">
+            <button type="submit">Crear material</button>
+            <a class="btn btn-warning " [routerLink]="['/catalogo']">Regresar</a>
+        </div>
+        
+    </form>
 </div>

@@ -190,4 +190,27 @@
         color: #fff;
         font-size: 10px;
     }
+
+    .options-container {
+        position: relative;
+        display: inline-block;
+      }
+  
+      .options-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px;
+      }
+  
+      .options-menu div {
+        cursor: pointer;
+        padding: 4px;
+      }
 }
