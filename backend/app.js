@@ -9,6 +9,7 @@ const port = process.env.PORT || 4201;
 
 
 var materiales_route = require('./routes/materiales');
+var admin_route = require('./routes/admin');
 
 
 const dbUrl = 'mongodb+srv://JirkiRuiz:V9bWXJA2W2X5oWXG@clusteroilwell.lvkne1h.mongodb.net/?retryWrites=true&w=majority';
@@ -29,17 +30,18 @@ mongoose.connect(dbUrl, connectionParams)
         console.error('Error connecting to MongoDB:', error);
     });
 
-    app.use(bodyparser.urlencoded({extended:true}));  //no se si se va a utlizar
-    app.use(bodyparser.json({limit: '50mb', extended:true}))  //no se si se va a utlizar
+    app.use(bodyparser.urlencoded({extended:true}));  
+    app.use(bodyparser.json({limit: '50mb', extended:true}))  
 
-    app.use((req,res,next)=>{ //no se si vamos a utlizar esto
+    app.use((req,res,next)=>{ 
         res.header('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Headers','Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Access-Control-Allow-Request-Method');
         res.header('Access-Control-Allow-Methods','GET, PUT, POST, DELETE, OPTIONS');
         res.header('Allow', 'GET, PUT, POST, DELETE, OPTIONS');
         next();
-    }); //no se si vamos a usar esto
+    }); 
 
     app.use('/api', materiales_route);
+    app.use('/api', admin_route);
 
 module.exports = app;
