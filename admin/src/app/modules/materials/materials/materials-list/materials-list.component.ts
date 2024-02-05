@@ -1,5 +1,6 @@
 import { Component , ViewChild , ElementRef,  Renderer2, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 import { MaterialsService } from 'src/app/services/materials.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class MaterialsListComponent implements OnInit {
 
     public sort:string = 'Nombre';
     public displayList:boolean = false;
-    
+    public token: any;
     
 
     public materials : Array<any> = [];
@@ -23,7 +24,8 @@ export class MaterialsListComponent implements OnInit {
     constructor( 
       private render: Renderer2,
       private router: Router,
-      private _materialsService : MaterialsService
+      private _materialsService : MaterialsService,
+      private _adminService: AdminService
       ){
 
     
@@ -34,7 +36,8 @@ export class MaterialsListComponent implements OnInit {
             this.toggleSort();
           }
         }
-      })
+      }),
+      this.token = this._adminService.getToken();
     }
 
     
@@ -43,7 +46,7 @@ export class MaterialsListComponent implements OnInit {
     }
 
     initData(filtro: any){
-      this._materialsService.listar_materiales_admin(this.filtro).subscribe(
+      this._materialsService.listar_materiales_admin(this.filtro, this.token).subscribe(
         response =>{
           console.log(response);
           this.materials = response.data;

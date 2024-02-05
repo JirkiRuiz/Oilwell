@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialsService } from 'src/app/services/materials.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-edit-material',
@@ -12,12 +13,16 @@ export class EditMaterialComponent implements OnInit {
   public material: any = {};
   public id: any;
   public categorias: Array<any> = [];
+  public token: any;
 
   constructor(
     private _materialsService: MaterialsService,
     private _router:Router,
     private _route : ActivatedRoute,
-  ){}
+    private _adminService: AdminService
+  )
+  {this.token = this._adminService.getToken();
+  }
 
 
   ngOnInit(): void {
@@ -38,7 +43,7 @@ export class EditMaterialComponent implements OnInit {
       data.descripcion= this.material.descripcion;
       data.contenido= this.material.contenido;
 
-      this._materialsService.actualizar_materiales_admin(data, this.id,).subscribe(response =>{
+      this._materialsService.actualizar_materiales_admin(data, this.id, this.token).subscribe(response =>{
           console.log(response);
           this._router.navigate(['/catalogo']);
         });

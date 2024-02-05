@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 import { MaterialsService } from 'src/app/services/materials.service';
 
 
@@ -11,14 +12,16 @@ import { MaterialsService } from 'src/app/services/materials.service';
 })
 export class AddMaterialCatalogComponent implements OnInit {
   material: any;
+  public token: any;
 
   public categorias: Array<any> = [];
 
   constructor(
     private _router:Router,
     private _materialsService : MaterialsService,
+    private _adminService : AdminService
   ){
-
+    this.token = this._adminService.getToken();
   }
 
   ngOnInit(): void {
@@ -36,7 +39,7 @@ export class AddMaterialCatalogComponent implements OnInit {
 
   registro(registroForm: any ){
     if(registroForm.valid){
-      this._materialsService.registro_materiales_admin(this.material).subscribe(response => {
+      this._materialsService.registro_materiales_admin(this.material, this.token).subscribe(response => {
         alert("Se registro con exito");
         this._router.navigate(['/catalogo']);
       });
