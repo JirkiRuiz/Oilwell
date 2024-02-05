@@ -17,7 +17,9 @@
                     </div>
                 </div>
                 <div class="search">
-                    <input class="input" type="text" placeholder="Buscar">
+                    <input class="input" type="text" placeholder="Buscar" name="filtro" [(ngModel)]="filtro">
+                    <button class="btn btn-primary" type="button" (click)="filtrar()">Filtrar</button>
+                    <button class="btn btn-primary" type="button" (click)="resetear()">Resetear</button>
                 </div>
             </div>
             <div class="pagination">
@@ -32,60 +34,25 @@
             <div class="list-header material">
                 <div class="list-element" style="width: 15%;">Nombre</div>
                 <div class="list-element id">ID</div>
-                <div class="list-element description">Descripcion</div>
-                <div class="list-element amount">Cantidad</div>
-                <div class="list-element availability">Disponibilidad</div>
+                <div class="list-element description">Categoria</div>
+                <div class="list-element amount">Stock</div>
+                <div class="list-element availability">Estado</div>
             </div>
-            <div class="material-item">
+            <div class="material-item" *ngFor="let item of materials, let i = index">
                 <div class="material">
-                    <div class="list-element name">Bebinca</div>
+                    <div class="list-element name">{{item.titulo}}</div>
                     <div class="list-element id">1</div>
-                    <div class="list-element description">Acero al carbon C10</div>
-                    <div class="list-element amount">25</div>
+                    <div class="list-element description">{{item.categoria}}</div>
+                    <div class="list-element amount">{{item.stock}}</div>
                     <div class="list-element availability">
-                        <p class="badge">DISPONIBLE</p>
+                        <p class="badge">{{item.estado}}</p>
                     </div>
+                   
                 </div>
-                <div class="material-detail">
-                    test
-                </div>
+                
+                
             </div>
-            <div class="material">
-                <div class="list-element name">Bebinca</div>
-                <div class="list-element id">1</div>
-                <div class="list-element description">Acero al carbon C10</div>
-                <div class="list-element amount">25</div>
-                <div class="list-element availability">
-                    <p class="badge">DISPONIBLE</p>
-                </div>
-            </div>
-            <div class="material">
-                <div class="list-element name">Bebinca</div>
-                <div class="list-element id">1</div>
-                <div class="list-element description">Acero al carbon C10</div>
-                <div class="list-element amount">25</div>
-                <div class="list-element availability">
-                    <p class="badge">DISPONIBLE</p>
-                </div>
-            </div>
-            <div class="material">
-                <div class="list-element name">Bebinca</div>
-                <div class="list-element id">1</div>
-                <div class="list-element description">Acero al carbon C10</div>
-                <div class="list-element amount">25</div>
-                <div class="list-element availability">
-                    <p class="badge">DISPONIBLE</p>
-                </div>
-            </div>
-            <div class="material">
-                <div class="list-element name">Bebinca</div>
-                <div class="list-element id">1</div>
-                <div class="list-element description">Acero al carbon C10</div>
-                <div class="list-element amount">25</div>
-                <div class="list-element availability">
-                    <p class="badge">DISPONIBLE</p>
-                </div>
-            </div>
+        
         </div>
     </div>
 </div>

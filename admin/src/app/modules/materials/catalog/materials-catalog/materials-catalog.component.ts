@@ -33,5 +33,6 @@ export class MaterialsCatalogComponent {
 
     public onFilter(filter:string){
       this.sort = filter;
+      console.log(this.sort);
     }
 }

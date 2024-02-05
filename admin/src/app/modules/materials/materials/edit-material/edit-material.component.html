@@ -1,1 +1,43 @@
-<p>edit-material works!</p>
+<div class="container">
+
+    <div class="header">
+        <h2>Actualizar  Material</h2>
+        <p>Actualizar  un material del catalogo</p>
+    </div>
+
+  <ng-container *ngIf="material">
+    <form #actualizarForm="ngForm" (ngSubmit)="actualizar(actualizarForm)">
+        
+        <div class="form">
+            <div class="item">
+                <label for="">Nombre </label>
+                <input type="text" class="form-control" placeholder="Nombre del material" required name="titulo" [(ngModel)]="material.titulo">
+            </div>
+
+            <div class="item">
+                <label> Categoria </label>
+                <select class="form-control" placeholder="Selecciona una categoria" required name="categoria" [(ngModel)]="material.categoria">
+                <option selected disabled value="">Categorias</option>
+                <option *ngFor="let categoria of categorias" [value]="categoria.nombre">{{categoria.nombre}}</option>
+            </select>
+            </div>
+
+            <div class="item">
+                <label> Stock </label>
+                <input type="text" class="form-control" placeholder="Stock disponible" required name="stock" [(ngModel)]="material.stock">
+            </div>
+
+            <div class="item">
+                <label> Estado </label>
+                <input type="text" class="form-control" placeholder="Disponibilidad" required name="estado" [(ngModel)]="material.estado">
+            </div>
+        </div>
+
+        <div class="submit">
+            <button type="submit">Editar material</button>
+            <!-- <a class="btn btn-warning " [routerLink]="['/catalogo']">Regresar</a> -->
+        </div>
+        
+    </form>
+ </ng-container>
+</div>
