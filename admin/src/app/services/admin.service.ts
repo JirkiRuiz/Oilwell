@@ -55,4 +55,8 @@ public url;
     
   
   }
+
+  logOut() {
+    localStorage.removeItem('token');
+  }
 }

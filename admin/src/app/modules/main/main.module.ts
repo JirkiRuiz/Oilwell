@@ -7,6 +7,7 @@ import { MaterialsModule } from '../materials/materials.module';
 import { MainComponent } from './main/main.component';
 import { DashboardModule } from '../dashboard/dashboard.module';
 
+
 const mainRoutes: Routes = [
   {
     path: '', // Empty path within MainModule
@@ -19,9 +20,10 @@ const mainRoutes: Routes = [
   declarations: [
     MainComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    
   ],
-  imports: [ MaterialsModule , DashboardModule, RouterModule.forChild(mainRoutes)],
+  imports: [ CommonModule, MaterialsModule , DashboardModule, RouterModule.forChild(mainRoutes)],
   exports: [RouterModule]
 })
 export class MainModule { }

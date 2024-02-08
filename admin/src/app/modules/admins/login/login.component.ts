@@ -22,9 +22,9 @@ export class LoginComponent  implements OnInit{
 
   ngOnInit(): void {
     if(this.token){
-      this._router.navigate(['/inicio']);
+      this._router.navigate(['/']);
     }else{
-      // this._router.navigate(['/login']);
+     
     }
   }
 
@@ -40,7 +40,7 @@ export class LoginComponent  implements OnInit{
         this.usuario = response.data;
         localStorage.setItem('token', response.token);
          localStorage.setItem('_id',response.data._id);
-         this._router.navigate(['/catalogo']);
+         this._router.navigate(['/inicio']);
          console.log(this.token)
       }
     )

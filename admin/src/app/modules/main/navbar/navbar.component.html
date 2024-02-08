@@ -4,13 +4,22 @@
             <div class="logo">
                 <img class="logo-img" src="../../../assets/images/logo prueba.png" alt="">
             </div>
-            <div class="main-name">Cloud9</div>
-        </div>
-        <div class="user">
-            <div class="user-name">OilWell Services</div>
+            <div class="main-name">Cloud9</div> 
+         </div>
+        <div class="dropdown"> 
+            
+            <div class="dropdown-content">
+              <a href="" (click)="logOut()">Cerrar sesión</a>
+            </div>
+        <div class="user"  >
+            <div class="user-name"   (click)="toggleDropdown()">OilWell Services</div>
             <div class="user-logo">
                 <img class="user-img" src="../../../assets/images/oilwell logo.jpg" alt="">
             </div>
         </div>
     </div>
 </div>
+
+
+
+

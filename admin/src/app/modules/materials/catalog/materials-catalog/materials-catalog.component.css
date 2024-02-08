@@ -57,16 +57,16 @@
     }
 
     .sort{
-        position: relative;
+        position: absolute;
     }
 
     .sort-list{
         width: 158px;
         background: #fff;
         border: 1px solid rgba(58,58,58,.15);
-        position: absolute;
+        position: none;
         border-radius: 10px;
-        top: 30px;
+        top: 50px;
         overflow: hidden;
 
         .sort-element{

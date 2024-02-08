@@ -40,6 +40,8 @@
         gap: 10px;
     }
 
+
+
    .sort-button{
         background-color: transparent;
         color: #8f8f8f;
@@ -64,7 +66,7 @@
         width: 158px;
         background: #fff;
         border: 1px solid rgba(58,58,58,.15);
-        position: absolute;
+        /* position: absolute; */
         border-radius: 10px;
         top: 30px;
         overflow: hidden;
@@ -94,6 +96,22 @@
     }
 
    
+   
+    .filter-button,
+    .reset-button {
+        border: none;
+        line-height: 0.5;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 10px 35px;
+        border-radius: 50px;
+        background-color: #145388;
+        border-color: #145388;
+        color: #fff;
+        margin-right:5px;
+    }
+
+ 
 
    .search{
 
@@ -106,9 +124,11 @@
             border-radius: 50px;
             border: 1px solid;
             outline: none;
+            margin-right:5px;
             
             &::placeholder{
                 color: #8f8f8f;
+                
             }
         
         }
