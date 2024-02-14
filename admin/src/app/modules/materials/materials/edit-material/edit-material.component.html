@@ -34,10 +34,13 @@
         </div>
 
         <div class="submit">
-            <button type="submit">Editar material</button>
-            <!-- <a class="btn btn-warning " [routerLink]="['/catalogo']">Regresar</a> -->
+            <button type="submit" >Editar material</button>
+            <a class="btn btn-warning " [routerLink]="['/catalogo']">Regresar</a>
         </div>
         
     </form>
  </ng-container>
 </div>
+<ng-container *ngIf="material == undefined">
+    <h6>No se encontro el registro del material</h6>
+    </ng-container>

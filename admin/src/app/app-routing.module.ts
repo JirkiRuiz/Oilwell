@@ -13,8 +13,9 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/',
     pathMatch: 'full',
+   
   },
   {
     path: 'catalogo',
@@ -34,8 +35,10 @@ const routes: Routes = [
       ),
     canActivate: [AdminGuard],
   },
-  // Other child routes for MainComponent if needed
+  { path: '**', redirectTo: '/inicio' } 
+
 ];
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

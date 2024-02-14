@@ -37,6 +37,7 @@
                 <div class="list-element description">Categoria</div>
                 <div class="list-element amount">Stock</div>
                 <div class="list-element availability">Estado</div>
+                <div class="list-element options">Opciones</div>
             </div>
             <div class="material-item" *ngFor="let item of materials, let i = index">
                 <div class="material">
@@ -47,6 +48,24 @@
                     <div class="list-element availability">
                         <p class="badge">{{item.estado}}</p>
                     </div>
+                    <div class="dropDown">
+                        <button (click)="optionsDrop()">Opciones</button>
+                        <ul class="options-list">
+                            
+                            <a  [routerLink]="['/catalogo/editar-material', item._id]"  >Editar Material</a><br>
+                            <a id="eliminarMaterialLink" (click)="abrirModalEliminar(item._id)">Eliminar Material</a>
+                          
+                        </ul>
+                    </div>
+                    <div id="confirmarEliminacionModal" *ngIf="confirmarEliminacionModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" (click)="cerrarModalEliminar()">&times;</span>
+                            <p>¿Estás seguro de que deseas eliminar este material?</p>
+                            <button id="confirmarEliminar" (click)="confirmarEliminar(item._id)">Confirmar</button>
+                            <button id="cancelarEliminar" (click)="cancelarEliminacion()">Cancelar</button>
+                        </div>
+                    </div>
+
                    
                 </div>
                 

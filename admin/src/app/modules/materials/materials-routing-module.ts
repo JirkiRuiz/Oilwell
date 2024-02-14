@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from '../guards/admin.guard';
 import { MaterialsCatalogComponent } from './catalog/materials-catalog/materials-catalog.component';
 import { AddMaterialCatalogComponent } from './catalog/add-material-catalog/add-material-catalog.component';
 import { MaterialsListComponent } from './materials/materials-list/materials-list.component';
@@ -8,15 +9,18 @@ import { EditMaterialComponent } from './materials/edit-material/edit-material.c
 const materialesRoutes: Routes = [
     {
         path: '',
-        component: MaterialsListComponent
+        component: MaterialsListComponent,
+        canActivate: [AdminGuard],
     },
     {
       path: 'agregar-material',
-      component: AddMaterialCatalogComponent
+      component: AddMaterialCatalogComponent,
+      canActivate: [AdminGuard],
     },
     {
-      path: 'editar-material',
-      component: EditMaterialComponent
+      path: 'editar-material/:id',
+      component: EditMaterialComponent,
+      canActivate: [AdminGuard],
     },
 ];
 

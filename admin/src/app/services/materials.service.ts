@@ -39,13 +39,13 @@ export class MaterialsService   {
     return this._http.get(this.apiUrl+'listar_materiales_admin/'+filtro,{headers:headers});//Como es de tipo get no le debes de pasar nada, porque solo es consulta, por eso no se usa el data.
   }
 
-  // obtener_materiales_admin(id, token):Observable<any> {
-  //   let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
-  //   return this._http.get(this.url+'obtener_producto_admin/'+id,{headers:headers});//Como es de tipo get no le debes de pasar nada, porque solo es consulta, por eso no se usa el data.
-  // }
+  obtener_materiales_admin(id :any , token : any):Observable<any> {
+    let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+    return this._http.get(this.apiUrl+'obtener_materiales_admin/'+id,{headers:headers});//Como es de tipo get no le debes de pasar nada, porque solo es consulta, por eso no se usa el data.
+  }
 
-  actualizar_materiales_admin(data: any, id: string, token: any):Observable<any>{ //Nomas el token para verificair que sea un usuario autenticado que registre la data.
-    if(data.portada){
+  actualizar_materiales_admin(data: any, id: any, token: any):Observable<any>{ //Nomas el token para verificair que sea un usuario autenticado que registre la data.
+    // if(data.portada){
       let headers = new HttpHeaders({'Authorization':token});
     
       const fd = new FormData();
@@ -55,16 +55,17 @@ export class MaterialsService   {
       fd.append('stock', data.stock);
       fd.append('estado', data.estado);
       
-    return this._http.put(this.apiUrl+'actualizar_materiales_admin/'+id,fd,{headers:headers});//Por parametro del metodo http le mando la data, se esta enviando inforamcion por eso estipo post, estamos adnadno data por parametro
+    return this._http.put(this.apiUrl+'actualizar_materiales_admin/'+id,data,{headers:headers});
+    // Por parametro del metodo http le mando la data, se esta enviando inforamcion por eso estipo post, estamos adnadno data por parametro
     
-    }else{
-      let headers = new HttpHeaders({'Authorization':token});
-      return this._http.put(this.apiUrl+'actualizar_materiales_admin/'+id,data,{headers:headers});//Por parametro del metodo http le mando la data, se esta enviando inforamcion por eso estipo post, estamos adnadno data por parametro
+    // }else{
+      // let headers = new HttpHeaders({'Authorization':token});
+      // return this._http.put(this.apiUrl+'actualizar_materiales_admin/'+id,data,{headers:headers});//Por parametro del metodo http le mando la data, se esta enviando inforamcion por eso estipo post, estamos adnadno data por parametro
     
-    }
+    // }
   }
 
-  eliminar_materiales_admin(id:string, token :any ):Observable<any> {
+  eliminar_materiales_admin(id:any , token :any ):Observable<any> {
     let headers = new HttpHeaders({'Content-Type':'application/json', 'Authorization':token});
     return this._http.delete(this.apiUrl+'eliminar_materiales_admin/'+id,{headers:headers});//Como es de tipo get no le debes de pasar nada, porque solo es consulta, por eso no se usa el data.
   }

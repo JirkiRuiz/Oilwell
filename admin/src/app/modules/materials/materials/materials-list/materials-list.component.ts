@@ -15,11 +15,15 @@ export class MaterialsListComponent implements OnInit {
     public sort:string = 'Nombre';
     public displayList:boolean = false;
     public token: any;
-    
+
+    public confirmarEliminacionModal : boolean = false;
 
     public materials : Array<any> = [];
     public load_data = true;
     public filtro = ''; 
+    public dropDown : boolean = true;
+  categoria: any;
+  estado: any;
 
     constructor( 
       private render: Renderer2,
@@ -45,7 +49,7 @@ export class MaterialsListComponent implements OnInit {
       this.initData(this.filtro);
     }
 
-    initData(filtro: any){
+    initData(filtro: any ){
       this._materialsService.listar_materiales_admin(this.filtro, this.token).subscribe(
         response =>{
           console.log(response);
@@ -68,18 +72,78 @@ export class MaterialsListComponent implements OnInit {
     }
 
     filtrar(){
-      this.initData(this.filtro)
-      console.log(this.filtro);
      
+      if(this.filtro){
+        this._materialsService.listar_materiales_admin(this.filtro,this.token).subscribe(
+          response => {
+            console.log(response);
+            this.materials = response.data;
+           
+          },
+          error =>{
+            console.log(error);
+          }
+  
+        )
+    
+    }
     }
     
     
     
     resetear(){
       this.filtro = '';
-      this.initData(this.filtro)
+      this.initData(this.filtro);
     }
 
     
+    optionsDrop(){
+      this.dropDown = false;
+    }
+
+
+    // eliminarMaterial(id : any){
+    //   this._materialsService.eliminar_materiales_admin(id, this.token).subscribe(
+    //     response =>{
+    //       console.log("Se elimino")
+    //       this.initData(this.filtro);
+    //       console.log(this.materials);  
+    //     },
+    //     error => {
+    //       console.log("No se ha podido eliminar el elemento.")
+    //     }
+    //     )
+    // }
+
+    abrirModalEliminar(id: any) {
+      // Aquí puedes mostrar el modal de confirmación según la implementación que estés utilizando
+      // Por ejemplo, podrías cambiar una variable de estado para mostrar u ocultar el modal
+      console.log("Abriendo modal para eliminar el material con ID:", id);
+      this.confirmarEliminacionModal = true;
+    }
   
+    cerrarModalEliminar() {
+      // Aquí puedes ocultar el modal de confirmación según la implementación que estés utilizando
+      // Por ejemplo, podrías cambiar una variable de estado para mostrar u ocultar el modal
+      console.log("Cerrando modal de confirmación");
+      this.confirmarEliminacionModal = false;
+
+    }
+
+    cancelarEliminacion(): void{
+      this.cerrarModalEliminar();
+    }
+  
+    confirmarEliminar(id: any) {
+      this._materialsService.eliminar_materiales_admin(id, this.token).subscribe(
+        response => {
+          console.log("Se eliminó el material correctamente");
+          this.initData(this.filtro);
+          this.cerrarModalEliminar();
+        },
+        error => {
+          console.log("No se ha podido eliminar el elemento:", error);
+        }
+      );
+    }
 }
